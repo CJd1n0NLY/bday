@@ -360,6 +360,12 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
     font-family:'Meow Script', cursive;
     font-size:clamp(1.6rem, 4vw, 2.2rem);
     color: var(--gold);
+    opacity: 0; 
+    transition: opacity 1.5s ease;
+  }
+
+  .fade-in-element {
+    opacity: 1 !important;
   }
 
   .petal{
@@ -683,7 +689,7 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
       </p>
       <!-- EDIT ME: sign-off -->
       <p class="finale-sign">— your poging bf</p>
-      <button id="hug-btn" class="card-dismiss" style="margin-top: 15px;">Send a Hug 🤍</button>
+      <button id="hug-btn" class="card-dismiss" style="margin-top: 15px; opacity: 0; transition: opacity 1.5s ease; cursor: pointer;">Send a Hug 🤍</button>
     </div>
 
     <!-- Tinanggal ang ligaw na "4" at ang old film-caption div -->
@@ -1086,6 +1092,8 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
       setTimeout(typeWriter, 40); // Bilis ng pag-type (40ms)
     } else {
       finaleMsgEl.classList.remove('typewriter-cursor'); // Alisin yung blinking cursor pag tapos na
+      document.querySelector('.finale-sign').classList.add('fade-in-element');
+      document.getElementById('hug-btn').classList.add('fade-in-element');
     }
   }
   
