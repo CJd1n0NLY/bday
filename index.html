@@ -332,8 +332,10 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
     align-items: center;
     justify-content: flex-start; /* Para magsimula ang text sa itaas */
     
-    /* 10vh sa taas, 35vh sa ilalim para lagpas sa film strip ang button mo */
-    padding: 10vh 6vw 35vh 6vw; 
+    /* 10vh sa taas; sa ilalim, fixed value (film strip height ~170px +
+       safe-area-inset-bottom + extra room) imbes na vh, dahil hindi
+       consistent ang vh sa lahat ng screen sizes/orientations */
+    padding: 10vh 6vw calc(170px + env(safe-area-inset-bottom, 0px) + 40px) 6vw; 
     
     /* Smooth scrolling para sa mga phones */
     -webkit-overflow-scrolling: touch; 
@@ -349,10 +351,10 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
   .finale-message{
     max-width:44ch;
     font-size:clamp(1rem, 2.2vw, 1.25rem);
-    line-height:1.75;
+    line-height:1.50;
     font-weight:300;
     color: rgba(247,241,230,0.9);
-    margin:0 0 20px;
+    margin:0 0 15px;
   }
   .finale-sign{
     font-family:'Meow Script', cursive;
@@ -412,9 +414,11 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
     bottom: 0; 
     left: 0;
     width: 100vw;
+    min-height: 154px; /* 130px img + 12px*2 padding, para consistent laging ito ang totoong height */
     background: rgba(20, 22, 38, 0.85); 
     border-top: 1px solid rgba(244, 227, 184, 0.2);
-    padding: 12px 0;
+    padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px)) 0;
+    box-sizing: border-box;
     z-index: 40;
   }
   .film-strip figure.show-caption {
