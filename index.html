@@ -315,21 +315,23 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
   }
 
  /* ---------- PHASE 5 : finale ---------- */
+  /* ---------- PHASE 5 : finale ---------- */
   #phase-finale {
-    /* Pinalaki natin ang 3rd value (bottom padding) to 25vh para umangat lahat */
-    padding: 6vh 6vw 25vh; 
-    background: rgba(5, 6, 13, 0.65);
+    padding: 10vh 6vw 28vh 6vw; /* Nilakihan ang bottom padding (28vh) para may espasyo sa button bago mag-film strip */
+    justify-content: flex-start; /* Imbes na center, magsisimula ang text sa bandang itaas */
+    overflow-y: auto; /* Bubuhayin nito ang pag-scroll pataas at pababa */
+    background: rgba(5, 6, 13, 0.75); /* Mas dark nang konti para mas madaling basahin */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: backdrop-filter 1.5s ease, background 1.5s ease, opacity 1.4s ease;
   }
-  .finale-title{
-    font-family:'Meow Script', cursive;
-    font-size:clamp(2.6rem, 9vw, 5.2rem);
+  .finale-title {
+    font-family: 'Meow Script', cursive;
+    font-size: clamp(2.6rem, 9vw, 5.2rem);
     color: var(--gold-soft);
-    line-height:1.1;
+    line-height: 1.1;
     text-shadow: 0 0 24px rgba(232,201,135,0.45);
-    margin:0 0 18px;
+    margin: 6vh 0 18px; /* Nagdagdag ng 6vh margin sa taas para hindi dikit sa dulo ng screen */
   }
   .finale-message{
     max-width:44ch;
@@ -393,13 +395,13 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
   #memory-img { cursor: zoom-in; }
 
   .film-strip-wrapper {
-    position: absolute;
-    bottom: 5%;
+    position: fixed; /* Pinalitan from absolute para hindi sumama sa pag-scroll ng letter */
+    bottom: 0; /* Dinikit sa pinaka-ibaba ng screen */
     left: 0;
     width: 100vw;
-    background: rgba(20, 22, 38, 0.4);
+    overflow: hidden;
+    background: rgba(20, 22, 38, 0.85); /* Mas solid na background para hindi bumakat ang nag-i-scroll na letter sa ilalim */
     border-top: 1px solid rgba(244, 227, 184, 0.2);
-    border-bottom: 1px solid rgba(244, 227, 184, 0.2);
     padding: 12px 0;
     z-index: 40;
   }
