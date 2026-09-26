@@ -316,10 +316,11 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
 
  /* ---------- PHASE 5 : finale ---------- */
   #phase-finale {
-    padding: 6vh 6vw;
-    background: rgba(5, 6, 13, 0.65); /* Bahagyang padidilimin ang background para umangat ang text */
-    backdrop-filter: blur(12px); /* Ito ang magba-blur sa aurora at stars */
-    -webkit-backdrop-filter: blur(12px); /* Para gumana rin nang maayos sa Safari at iPhones */
+    /* Pinalaki natin ang 3rd value (bottom padding) to 25vh para umangat lahat */
+    padding: 6vh 6vw 25vh; 
+    background: rgba(5, 6, 13, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     transition: backdrop-filter 1.5s ease, background 1.5s ease, opacity 1.4s ease;
   }
   .finale-title{
@@ -887,6 +888,11 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
     {year:'Fifthhhh', img:'memory5.jpg', note:'This memory keeps reminding me of how strong and brave you are boi. This is the best memory for me kasi mas nagtiwala tayo kay God and his miracles.'},
     {year:'6th yarn??', img:'memory6.jpg', note:'Syempre EK, both our first time e haha kahit na nag-away bago umuwi, di kasi makapili kung sa\'n kakain WHAHAHAHAHA - but still, best memory so far besides sa boracay trip natin.'}
   ];
+
+  STORIES.forEach(story => {
+    const preload = new Image();
+    preload.src = story.img;
+  });
 
   const skySection = document.getElementById('phase-sky');
   const skyPrompt = document.getElementById('sky-prompt');
