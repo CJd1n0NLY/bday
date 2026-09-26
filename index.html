@@ -317,21 +317,34 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
  /* ---------- PHASE 5 : finale ---------- */
   /* ---------- PHASE 5 : finale ---------- */
   #phase-finale {
-    padding: 10vh 6vw 28vh 6vw; /* Nilakihan ang bottom padding (28vh) para may espasyo sa button bago mag-film strip */
-    justify-content: flex-start; /* Imbes na center, magsisimula ang text sa bandang itaas */
-    overflow-y: auto; /* Bubuhayin nito ang pag-scroll pataas at pababa */
-    background: rgba(5, 6, 13, 0.75); /* Mas dark nang konti para mas madaling basahin */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    padding: 0; /* Binura natin ang padding dito */
+    background: rgba(5, 6, 13, 0.75); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
     transition: backdrop-filter 1.5s ease, background 1.5s ease, opacity 1.4s ease;
   }
-  .finale-title {
-    font-family: 'Meow Script', cursive;
-    font-size: clamp(2.6rem, 9vw, 5.2rem);
+  .finale-content-scroll {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Ito ang nagpapagana ng scroll */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Para magsimula ang text sa itaas */
+    
+    /* 10vh sa taas, 35vh sa ilalim para lagpas sa film strip ang button mo */
+    padding: 10vh 6vw 35vh 6vw; 
+    
+    /* Smooth scrolling para sa mga phones */
+    -webkit-overflow-scrolling: touch; 
+  }
+  .finale-title{
+    font-family:'Meow Script', cursive;
+    font-size:clamp(2.6rem, 9vw, 5.2rem);
     color: var(--gold-soft);
-    line-height: 1.1;
+    line-height:1.1;
     text-shadow: 0 0 24px rgba(232,201,135,0.45);
-    margin: 6vh 0 18px; /* Nagdagdag ng 6vh margin sa taas para hindi dikit sa dulo ng screen */
+    margin: 0 0 18px 0; /* Ni-reset ang margin para hindi sobrang baba */
   }
   .finale-message{
     max-width:44ch;
@@ -655,17 +668,19 @@ HOW TO CUSTOMIZE THIS FILE (search for "EDIT ME" to find every spot):
 
   <!-- PHASE 5 — THE FINALE -->
   <section class="phase" id="phase-finale">
-    <h1 class="finale-title">Happy Happy Birthday,<br>Seii</h1>
-    <!-- EDIT ME: your message -->
-    <p class="finale-message">
-      Gusto kong sabihin na sobrang proud and grateful ko sayo. Literal na ups and down you made me whole. I love you and I will choose you every single day.
-      Enjoy ka lang muna jan sa HK sobrang deserve mo yan! sorry kung di ako nakasama T_T bawi tayo next time hehe
-      I wish for your continuous success, everlasting faith in God, and wag mapagod mangarap kasama ako dahil uunti-untiin natin tuparin yan. 
-      I love you so so much, Happy birthdayyy!
-    </p>
-    <!-- EDIT ME: sign-off -->
-    <p class="finale-sign">— your poging bf</p>
-    <button id="hug-btn" class="card-dismiss" style="margin-top: 15px;">Send a Hug 🤍</button>
+    <div class="finale-content-scroll"></div>
+      <h1 class="finale-title">Happy Happy Birthday,<br>Seii</h1>
+      <!-- EDIT ME: your message -->
+      <p class="finale-message">
+        Gusto kong sabihin na sobrang proud and grateful ko sayo. Literal na ups and down you made me whole. I love you and I will choose you every single day.
+        Enjoy ka lang muna jan sa HK sobrang deserve mo yan! sorry kung di ako nakasama T_T bawi tayo next time hehe
+        I wish for your continuous success, everlasting faith in God, and wag mapagod mangarap kasama ako dahil uunti-untiin natin tuparin yan. 
+        I love you so so much, Happy birthdayyy!
+      </p>
+      <!-- EDIT ME: sign-off -->
+      <p class="finale-sign">— your poging bf</p>
+      <button id="hug-btn" class="card-dismiss" style="margin-top: 15px;">Send a Hug 🤍</button>
+    </div>
     <div class="film-strip-wrapper">
       <div class="film-strip" id="my-film-strip">
         <!-- SET 1: Unang ikot ng 22 images -->
